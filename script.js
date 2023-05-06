@@ -25,8 +25,8 @@ function hacerGuiones(num) {
 //Crea un teclado interactivo
 function teclado(a, z) {
   document.getElementById("abcdario").innerHTML = "";
-  var i = a.charCodeAt(0), j = z.charCodeAt(0);
-  var letra = "";
+  let i = a.charCodeAt(0), j = z.charCodeAt(0);
+  let letra = "";
   for (; i <= j; i++) {
     letra = String.fromCharCode(i).toUpperCase();
     document.getElementById("abcdario").innerHTML += "<button value='" + letra + "' onclick='intento(\"" + letra + "\")' class='letra' id='" + letra + "'>" + letra + "</button>";
@@ -36,7 +36,7 @@ function teclado(a, z) {
 function intento(letra) {
   document.getElementById(letra).disabled = true;
   if (palabra.indexOf(letra) != -1) {
-    for (var i = 0; i < palabra.length; i++) {
+    for (let i = 0; i < palabra.length; i++) {
       if (palabra[i] == letra)oculta[i] = letra;
     hueco.innerHTML = oculta.join("");
     }
@@ -56,7 +56,7 @@ function compruebaFin() {
     document.getElementById("mensaje").innerHTML = "Ganaste !!";
     document.getElementById("mensaje").className += "zoom-in";
     document.getElementById("palabra").className += " encuadre";
-    for (var i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
     document.getElementById("reset").innerHTML = "Empezar";
@@ -64,7 +64,7 @@ function compruebaFin() {
   } else if (cont == 0) {
     document.getElementById("mensaje").innerHTML = "Palabra:"+palabra;
     document.getElementById("mensaje").className += "zoom-in";
-    for (var i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
     btnInicio.innerText= "Reiniciar"
